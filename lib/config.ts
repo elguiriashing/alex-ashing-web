@@ -13,8 +13,10 @@ export const siteConfig = {
   
   // Calendly
   calendly: {
-    // Replace this with your Calendly link
+    // Free 15-min consultation
     url: "https://calendly.com/alexashing1/30min",
+    // Paid consultation (60-90 min business assessment)
+    paidConsultation: "https://calendly.com/alexashing1/1st-consultation",
   },
   
   // Contact

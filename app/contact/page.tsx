@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Mail, MessageSquare, Clock, CheckCircle2 } from "lucide-react"
+import { Mail, MessageSquare, Clock, CheckCircle2, Calendar, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,6 +21,7 @@ import { SectionContainer } from "@/components/section-container"
 import { FadeIn } from "@/components/fade-in"
 import { CalendlyButton } from "@/components/calendly-button"
 import { useToast } from "@/components/ui/use-toast"
+import { siteConfig } from "@/lib/config"
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -246,13 +247,28 @@ export default function ContactPage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="mt-12 text-center">
-              <p className="text-sm text-muted-foreground mb-4">
-                Prefer to schedule a call directly?
-              </p>
-              <CalendlyButton variant="outline">
-                Book a 15-min Call
-              </CalendlyButton>
+            <div className="mt-12 text-center space-y-6">
+              <div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Prefer to schedule a call directly?
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <CalendlyButton variant="outline">
+                    Book a Free 15-min Call
+                  </CalendlyButton>
+                  <Button 
+                    variant="primary" 
+                    size="lg"
+                    onClick={() => window.open(siteConfig.calendly.paidConsultation, "_blank", "noopener,noreferrer")}
+                  >
+                    <Sparkles className="mr-2 h-5 w-5" />
+                    Business Assessment (60-90 min)
+                  </Button>
+                </div>
+                <p className="text-xs text-muted-foreground mt-3">
+                  💼 Full business assessment • Paid consultation
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>
