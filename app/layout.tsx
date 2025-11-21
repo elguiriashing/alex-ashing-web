@@ -45,6 +45,8 @@ export const metadata: Metadata = {
     title: "Alex Ashing | Custom Tech Solutions",
     description:
       "Full-stack developer for bars, clubs, restaurants, and creative businesses.",
+    creator: "@alex74927",
+    site: "@alex74927",
   },
   robots: {
     index: true,

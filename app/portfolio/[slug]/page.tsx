@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -19,6 +20,52 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }))
+}
+
+export async function generateMetadata(props: ProjectPageProps): Promise<Metadata> {
+  const params = await props.params
+  const project = projects.find((p) => p.slug === params.slug)
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    }
+  }
+
+  return {
+    title: `${project.title} - ${project.clientType}`,
+    description: `${project.description} ${project.outcome}`,
+    keywords: [
+      ...project.tags,
+      project.clientType.toLowerCase(),
+      "portfolio",
+      "case study",
+      "web development",
+    ],
+    openGraph: {
+      title: `${project.title} | Alex Ashing Portfolio`,
+      description: project.description,
+      type: "article",
+      url: `https://alexashing.com/portfolio/${params.slug}`,
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Alex Ashing`,
+      description: project.description,
+      images: [project.image],
+    },
+    alternates: {
+      canonical: `https://alexashing.com/portfolio/${params.slug}`,
+    },
+  }
 }
 
 export default async function ProjectPage(props: ProjectPageProps) {

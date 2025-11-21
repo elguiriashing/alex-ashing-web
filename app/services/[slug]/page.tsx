@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react"
 import * as Icons from "lucide-react"
 
@@ -18,6 +19,45 @@ export async function generateStaticParams() {
   return services.map((service) => ({
     slug: service.slug,
   }))
+}
+
+export async function generateMetadata(props: ServicePageProps): Promise<Metadata> {
+  const params = await props.params
+  const service = services.find((s) => s.slug === params.slug)
+
+  if (!service) {
+    return {
+      title: "Service Not Found",
+    }
+  }
+
+  return {
+    title: service.title,
+    description: service.longDescription,
+    keywords: [
+      service.title.toLowerCase(),
+      ...service.title.toLowerCase().split(" "),
+      "custom development",
+      "web app",
+      "saas platform",
+      "nightlife tech",
+      "hospitality software",
+    ],
+    openGraph: {
+      title: `${service.title} | Alex Ashing`,
+      description: service.longDescription,
+      type: "website",
+      url: `https://alexashing.com/services/${params.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | Alex Ashing`,
+      description: service.longDescription,
+    },
+    alternates: {
+      canonical: `https://alexashing.com/services/${params.slug}`,
+    },
+  }
 }
 
 export default async function ServicePage(props: ServicePageProps) {
