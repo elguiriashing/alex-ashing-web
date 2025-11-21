@@ -1,0 +1,4 @@
+# This is a placeholder - Next.js will generate the real one from app/robots.ts
+User-agent: *
+Allow: /
+
