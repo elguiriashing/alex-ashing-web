@@ -6,14 +6,14 @@ import { siteConfig } from "@/lib/config"
 
 interface CalendlyButtonProps {
   size?: "default" | "sm" | "lg" | "icon"
-  variant?: "default" | "outline" | "ghost" | "link"
+  variant?: "primary" | "secondary" | "destructive" | "outline" | "ghost" | "link" | null
   className?: string
   children?: React.ReactNode
 }
 
 export function CalendlyButton({ 
   size = "lg", 
-  variant = "default",
+  variant = "primary",
   className,
   children = "Book a Call"
 }: CalendlyButtonProps) {
