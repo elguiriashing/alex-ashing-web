@@ -8,10 +8,10 @@ import { SectionContainer } from "@/components/section-container"
 import { FadeIn } from "@/components/fade-in"
 import { services } from "@/lib/services-data"
 
-interface ServicePageProps {
-  params: {
+type ServicePageProps = {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -20,7 +20,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePage(props: ServicePageProps) {
+  const params = await props.params
   const { slug } = params
   const service = services.find((s) => s.slug === slug)
 

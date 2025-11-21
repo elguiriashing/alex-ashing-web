@@ -64,7 +64,7 @@ export default function HomePage() {
           <FadeIn delay={0.1}>
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               Your bar, club, or restaurant runs on{" "}
-              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 custom tech
               </span>
             </h1>

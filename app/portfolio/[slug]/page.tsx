@@ -9,10 +9,10 @@ import { SectionContainer } from "@/components/section-container"
 import { FadeIn } from "@/components/fade-in"
 import { projects } from "@/lib/projects-data"
 
-interface ProjectPageProps {
-  params: {
+type ProjectPageProps = {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage(props: ProjectPageProps) {
+  const params = await props.params
   const { slug } = params
   const project = projects.find((p) => p.slug === slug)
 
