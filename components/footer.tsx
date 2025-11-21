@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Instagram, Youtube, Twitter } from "lucide-react"
 
 const footerLinks = {
   services: [
@@ -17,9 +17,9 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Email", icon: Mail, href: "/contact" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/alex.ashing" },
+  { name: "YouTube", icon: Youtube, href: "https://www.youtube.com/@alexashing1" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/alex74927" },
 ]
 
 export function Footer() {
