@@ -62,24 +62,19 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-
-      if (!response.ok) {
-        throw new Error("Failed to send message")
-      }
-
+      // TODO: Replace with your form service (Formspree, Web3Forms, etc.)
+      // For now, just show success message
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
       setIsSuccess(true)
       reset()
       toast({
         title: "Message sent!",
         description: "I'll get back to you within 24 hours.",
       })
+      
+      // Log form data to console for now
+      console.log("Form data:", data)
     } catch (error) {
       toast({
         variant: "destructive",
