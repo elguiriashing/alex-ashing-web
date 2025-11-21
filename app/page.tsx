@@ -9,6 +9,7 @@ import { SectionContainer } from "@/components/section-container"
 import { ServiceCard } from "@/components/service-card"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { FadeIn } from "@/components/fade-in"
+import { CalendlyButton } from "@/components/calendly-button"
 import { services } from "@/lib/services-data"
 import { testimonials } from "@/lib/testimonials-data"
 
@@ -79,12 +80,9 @@ export default function HomePage() {
 
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Book a free 15-min call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              <CalendlyButton size="lg">
+                Book a free 15-min call
+              </CalendlyButton>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/services">View Services</Link>
               </Button>
@@ -232,12 +230,9 @@ export default function HomePage() {
               about what you need and see if I can help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Book a Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              <CalendlyButton size="lg">
+                Book a Call
+              </CalendlyButton>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/portfolio">View Portfolio</Link>
               </Button>

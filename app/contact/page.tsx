@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select"
 import { SectionContainer } from "@/components/section-container"
 import { FadeIn } from "@/components/fade-in"
+import { CalendlyButton } from "@/components/calendly-button"
 import { useToast } from "@/components/ui/use-toast"
 
 const contactFormSchema = z.object({
@@ -249,15 +250,9 @@ export default function ContactPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 Prefer to schedule a call directly?
               </p>
-              <Button variant="outline" asChild>
-                <a
-                  href="https://calendly.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book a 15-min Call
-                </a>
-              </Button>
+              <CalendlyButton variant="outline">
+                Book a 15-min Call
+              </CalendlyButton>
             </div>
           </FadeIn>
         </div>
