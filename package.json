@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Alex Ashing Portfolio Website",
   "main": "index.html",
-  "scripts": {
-    "build": "echo 'Static site - no build needed'"
-  },
+  "scripts": {},
   "keywords": ["portfolio", "music", "visuals", "tech", "photography"],
   "author": "Alex Ashing",
   "license": "MIT"
