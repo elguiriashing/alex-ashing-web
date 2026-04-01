@@ -1,0 +1,12 @@
+{
+  "name": "alexashing-portfolio",
+  "version": "1.0.0",
+  "description": "Alex Ashing Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site ready'"
+  },
+  "keywords": ["portfolio", "music", "visuals", "tech", "photography"],
+  "author": "Alex Ashing",
+  "license": "MIT"
+}
