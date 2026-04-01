@@ -11,6 +11,17 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Large media files - use external hosting
+media/**/*.jpg
+media/**/*.mp4
+media/**/*.png
+media/**/*.gif
+media/**/*.avi
+media/**/*.mov
+
+# Keep small placeholder files
+!media/placeholder.txt
+
 # Runtime data
 pids
 *.pid
