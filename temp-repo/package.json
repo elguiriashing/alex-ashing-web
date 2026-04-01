@@ -4,7 +4,7 @@
   "description": "Alex Ashing Portfolio Frontend",
   "main": "frontend/index.html",
   "scripts": {
-    "build": "mkdir -p out && cp -r frontend/* out/"
+    "build": "node build.js"
   },
   "keywords": ["portfolio", "frontend", "static"],
   "author": "Alex Ashing",
